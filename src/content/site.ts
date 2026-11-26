@@ -20,7 +20,7 @@ export const siteConfig: SiteConfig = {
   },
   cv: {
     href: "/cv/cv.pdf",
-    fileName: "CV_Cristobal_Nanjari_Desarrollador.pdf",
+    fileName: "CV_Cristobal_Nanjari.pdf",
     available: true,
     languageTag: "ES",
   },
