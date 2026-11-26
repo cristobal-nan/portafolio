@@ -8,7 +8,8 @@ export const PROJECT_SLUGS: readonly ProjectSlug[] = [
 ] as const;
 
 export const siteConfig: SiteConfig = {
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://example.vercel.app",
+  siteUrl:
+    process.env.NEXT_PUBLIC_SITE_URL || "https://cristobal-nanjari.vercel.app",
   authorName: "Cristóbal Nanjarí",
   authorNameIsPlaceholder: false,
   email: "cristobal.nan@gmail.com",
