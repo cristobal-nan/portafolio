@@ -12,25 +12,25 @@ export const udpAttendanceEn: ProjectCaseStudy = {
   organization: "Universidad Diego Portales (UDP) — Engineering Thesis (2025)",
   role: "Author & Full-Stack Engineer",
   period: "Capstone Thesis (2025)",
-  status: "Validated in live classes & load tests (> 50,000 records)",
+  status: "Historical thesis project (2025) · Piloted in 5 sections · Retired backend",
   summary:
-    "End-to-end academic attendance platform designed for UDP's Faculty of Engineering & Sciences: dynamic QR tokens with WebSocket feedback and screenshot blocking, real-time attendance matrix, daily & early-warning analytics, native Canvas LMS integration, 24 use cases, and validation across > 50,000 records and 1,500 concurrent submissions.",
+    "End-to-end academic attendance platform designed for UDP's Faculty of Engineering & Sciences: signed dynamic QR tokens with real-time WebSocket feedback, attendance matrix, daily & threshold-based early-warning reports, bidirectional Canvas LMS integration, 24 use cases, academic pilot across 5 sections (~40 students/section), and capacity modeling for 2,650 projected users.",
   featuredTags: [
     { label: "Python · FastAPI · WebSocket" },
     { label: "Flutter (Android & iOS) · Next.js" },
     { label: "Firebase Auth · Cloud Firestore" },
-    { label: "Canvas LMS API · > 50k records" },
+    { label: "Canvas LMS API · 24 use cases" },
   ],
   keyMetrics: [
     {
-      label: "Load testing",
-      value: "> 50,000",
-      note: "Total records & 1,500 simultaneous submissions",
+      label: "Academic pilot",
+      value: "5 sections",
+      note: "~40 students per section with thesis advisor",
     },
     {
       label: "Modeled capacity",
       value: "2,650 users",
-      note: "200k records/mo · 8.4 req/s · 29.4 DB ops/s",
+      note: "FIC-UDP projection · 200k records/mo · 8.4 req/s",
     },
     {
       label: "LMS integration",
@@ -40,13 +40,13 @@ export const udpAttendanceEn: ProjectCaseStudy = {
     {
       label: "Feasibility (FIC-UDP)",
       value: "~5-mo payback",
-      note: "NPV CLP $27.8M (6%) · IRR 253% · $0.90/mo DB",
+      note: "Estimated: NPV CLP $27.8M (6%) · IRR 253% · $0.90/mo DB",
     },
   ],
   links: [
     {
       label: "View repository on GitHub",
-      href: "https://github.com/cristobal-nan/academic-attendance-system",
+      href: "https://github.com/cristobal-nan/academic-attendance-system/blob/main/README.en.md",
       type: "repository",
     },
     {
@@ -67,7 +67,7 @@ export const udpAttendanceEn: ProjectCaseStudy = {
       text: "Capstone engineering thesis for **Computer Science & Telecommunications Engineering** at the Faculty of Engineering & Sciences, **Universidad Diego Portales (UDP)** (2025). The project transforms classroom attendance—traditionally manual and fragmented—into a structured data asset supporting proactive student-retention alerts.",
     },
     {
-      text: "Designed to integrate natively with existing university infrastructure (**Canvas LMS** and institutional `@mail.udp.cl` Google accounts) using a hybrid methodology (Waterfall for architecture and data modeling + Agile iterations for implementation and pilot testing).",
+      text: "Designed to integrate natively with existing university infrastructure (**Canvas LMS** and institutional `@mail.udp.cl` Google accounts) using a hybrid methodology (Waterfall for architecture and data modeling + Agile iterations for implementation and pilot testing). *Current status:* the original institutional deployment is retired and the public monorepo is maintained for code review with no live demo.",
     },
   ],
   problem: [
@@ -80,21 +80,21 @@ export const udpAttendanceEn: ProjectCaseStudy = {
   ],
   solution: [
     {
-      text: "**Anti-fraud classroom workflow (Flutter Mobile App):** The instructor or teaching assistant activates a scheduled session; students authenticated via `@mail.udp.cl` generate a **cryptographically signed dynamic QR token** with countdown timer and **screenshot blocking**; the instructor scans it via camera. The backend verifies signature, expiration, enrollment, and duplicates, pushing instant **WebSocket** confirmation to both devices.",
+      text: "**Proxy-attendance mitigation workflow (Flutter Mobile App):** The instructor or teaching assistant activates a scheduled session; students authenticated via `@mail.udp.cl` generate a **cryptographically signed dynamic QR token** (30 s TTL) with countdown timer and mobile screenshot-blocking support; the instructor scans it via camera. The backend verifies signature, expiration, enrollment, and duplicates, pushing real-time **WebSocket** confirmation to both devices.",
     },
     {
-      text: "**Administration, analytics & Canvas sync (Next.js Web Platform):** Centralized console featuring a real-time attendance matrix (with audited manual fallback and session-type filters: Lecture, Recitation, Lab), automated **Daily Reports** (flagging unactivated sessions and 100%-manual sections), **Early-Warning Snapshots** (configurable 70% threshold), multi-sheet CSV/XLSX exports, and **bidirectional Canvas LMS synchronization**.",
+      text: "**Administration, analytics & Canvas sync (Next.js Web Platform):** Centralized console featuring a real-time attendance matrix (with audited manual fallback and session-type filters: Lecture, Recitation, Lab), automated **Daily Reports** (flagging unactivated sessions and 100%-manual sections), **Early-Warning Snapshots** (configurable 70% threshold; non-predictive), multi-sheet CSV/XLSX exports, and **bidirectional Canvas LMS synchronization**.",
     },
   ],
   responsibilities: [
     {
-      text: "End-to-end architecture design across 5 components, 24 formal use cases, Cloud Firestore NoSQL schema (9 collections + 2 subcollections), and capacity/economic feasibility modeling for FIC-UDP.",
+      text: "End-to-end architecture design across 5 components, 24 formal use cases, Cloud Firestore NoSQL schema (9 collections + 2 subcollections), and capacity/economic feasibility modeling for 2,650 projected users at FIC-UDP.",
     },
     {
       text: "Autonomous full-stack implementation of the asynchronous **Python / FastAPI** backend, **Next.js** web platform (Vercel), cross-platform **Flutter** mobile app (Android & iOS), and **Canvas LMS API** integration.",
     },
     {
-      text: "Validation plan authoring (28 functional/security + 9 non-functional test cases), live university class piloting, and load testing beyond **50,000 records** and **1,500 simultaneous submissions**.",
+      text: "Formal validation matrix authoring (28 functional/security + 9 non-functional target criteria) and academic piloting across **5 sections (~40 students per section)** with the thesis advisor.",
     },
   ],
   technologies: [
@@ -125,7 +125,7 @@ export const udpAttendanceEn: ProjectCaseStudy = {
         "Render (Standard 1 CPU / 2 GB RAM)",
         "Vercel (Web Frontend)",
         "pytest · Cypress · flutter_test · Firebase Emulator",
-        "Load testing (> 50k / 1,500 concurrent)",
+        "Validation matrix (28 functional + 9 non-functional)",
       ],
     },
   ],
@@ -136,9 +136,9 @@ export const udpAttendanceEn: ProjectCaseStudy = {
     components: [
       {
         name: "Flutter Mobile App (`qr_generator` / `qr_validator`)",
-        role: "Android & iOS · Anti-fraud capture",
+        role: "Android & iOS · In-class QR capture",
         details:
-          "Domain-restricted `@mail.udp.cl` Google Sign-In, expiring dynamic QR with screenshot blocking, session activation, camera scanner, and real-time WebSocket confirmation.",
+          "Domain-restricted `@mail.udp.cl` Google Sign-In, expiring signed dynamic QR (30 s) with mobile screenshot-blocking support, session activation, camera scanner, and real-time WebSocket confirmation.",
       },
       {
         name: "Next.js Web Platform (Vercel)",
@@ -194,25 +194,25 @@ export const udpAttendanceEn: ProjectCaseStudy = {
         "Publishing to dedicated gradebook assignments bypasses the closed Roll Call module and gives students native visibility in Canvas Mobile/Web, requiring an explicit `lmsCourseId` binding per section.",
     },
     {
-      title: "Preventing proxy fraud while handling start-of-class bursts",
+      title: "Mitigating proxy attendance while handling start-of-class bursts",
       problem:
-        "Forwarding QR screenshots to absent peers undermines attendance integrity, while hundreds of concurrent scans during the first 5 minutes of a lecture block can bottleneck synchronous backends.",
+        "Forwarding QR screenshots to absent peers undermines in-person verification, while concurrent scans during the first minutes of a lecture block can bottleneck synchronous backends.",
       approach:
-        "Combined short-lived cryptographically signed tokens (~30 s), OS-level screenshot blocking on the QR screen (`RF-3-03`), automated daily audit flags for 100%-manual sessions, and an asynchronous **FastAPI** backend validated beyond 50,000 records and 1,500 simultaneous requests.",
+        "Combined short-lived cryptographically signed tokens (30 s), mobile screenshot-blocking utility (`RF-3-03`), automated daily audit flags for 100%-manual sessions, and an asynchronous **FastAPI** backend designed for non-blocking concurrency.",
     },
   ],
   results: [
     {
-      category: "Live pilot & load validation",
-      title: "Real university classes + > 50,000 records & 1,500 concurrent",
+      category: "Academic pilot & validation matrix",
+      title: "5-section pilot (~40 students/section) + 37-case validation matrix",
       detail:
-        "Validated in **live university classes** at UDP and load-tested beyond **50,000 records** and **1,500 simultaneous submissions**, supported by a formal plan of **28 functional/security** and **9 non-functional test cases** (API < 500 ms, QR < 1 s, web matrix < 3 s).",
+        "Prototype used in an **academic pilot across 5 sections (~40 students per section)** with the thesis advisor, backed by a formal matrix of **28 functional/security** cases and **9 non-functional target criteria** (API < 500 ms, QR < 1 s, web matrix < 3 s).",
     },
     {
       category: "Capacity & economic feasibility (FIC-UDP)",
-      title: "2,650-user sizing & ~5-month payback",
+      title: "2,650 projected users & ~5-month estimated payback",
       detail:
-        "Sized for 2,500 students + 150 staff (**200,000 records/month**, peak 4.2 TPS / 8.4 req/s / 29.4 DB ops/s) at an estimated **~$0.903 USD/month** Firestore cost in `southamerica-west1` (Santiago), yielding **NPV CLP $27,844,232 (6%)**, **IRR 253%**, and **0.39-year (~5-month) payback** from recovered instructional time.",
+        "Capacity study modeled for a projected population of 2,500 students + 150 staff (**200,000 records/month**, modeled peak 4.2 TPS / 8.4 req/s / 29.4 DB ops/s) at an estimated **~$0.903 USD/month** Firestore cost in `southamerica-west1` (Santiago), yielding estimated **NPV CLP $27,844,232 (6%)**, **IRR 253%**, and **0.39-year (~5-month) payback** from recovered instructional time.",
     },
     {
       category: "Supporting evidence",
@@ -318,9 +318,9 @@ export const udpAttendanceEn: ProjectCaseStudy = {
     },
     {
       id: "udp-mobile-03-qr",
-      title: "Anti-Fraud Dynamic QR Token Generator",
+      title: "Dynamic QR Token Generator (30 s TTL)",
       caption:
-        "Short-lived signed token with live countdown, screenshot blocking, and instant WebSocket confirmation once scanned by the instructor.",
+        "Short-lived signed token with live countdown, mobile screenshot-blocking support, and real-time WebSocket confirmation once scanned by the instructor.",
       kind: "screenshot",
       orientation: "portrait",
       group: "Mobile app (Flutter · Android & iOS)",
@@ -353,6 +353,6 @@ export const udpAttendanceEn: ProjectCaseStudy = {
   seo: {
     title: "UDP Academic Attendance System — Case Study",
     description:
-      "Thesis & case study of the UDP Academic Attendance System (Next.js, Flutter, FastAPI, Firestore, Canvas LMS): dynamic anti-fraud QR tokens, analytics, > 50,000 records, and 1,500 concurrent submissions.",
+      "Thesis & case study of the UDP Academic Attendance System (Next.js, Flutter, FastAPI, Firestore, Canvas LMS): signed dynamic QR tokens, 5-section academic pilot, and capacity modeling for 2,650 projected users.",
   },
 };

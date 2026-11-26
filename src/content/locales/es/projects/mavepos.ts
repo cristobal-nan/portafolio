@@ -4,17 +4,17 @@ export const maveposEs: ProjectCaseStudy = {
   slug: "mavepos",
   depth: "very-detailed",
   depthLabel: "Caso de estudio muy detallado",
-  title: "MavePOS — POS y Suite ERP Multi-Tienda 100% Offline",
+  title: "MavePOS — POS Offline-First y Suite ERP Multi-Tienda",
   shortTitle: "MavePOS",
   tagline:
-    "Aplicación de escritorio para Windows diseñada para operar 100% offline con SQLite transaccional (WAL), caché write-through en RAM para hasta 50.000 productos, impresión térmica híbrida, licenciamiento criptográfico por hardware y suite ERP multi-sucursal vía Google Drive.",
-  category: "Escritorio Windows · POS + ERP Offline",
+    "Aplicación de escritorio para Windows con operación local sin internet (SQLite WAL y caché write-through en RAM para hasta 50.000 productos), impresión térmica híbrida, licenciamiento offline ligado a hardware y suite ERP multi-sucursal con sincronización diferida vía Google Drive.",
+  category: "Escritorio Windows · POS + ERP Offline-First",
   organization: "Mave (Proyecto independiente en producción)",
   role: "Ingeniero de Software — Proyecto independiente",
   period: "ago. 2026 — actualidad",
-  status: "Operativo en 2 sucursales (~5.500 productos · +1.200 ventas/mes por tienda · v1.0.16)",
+  status: "Operativo en 2 sucursales (~5.500 SKU/tienda · +1.200 ventas/mes en una sucursal · v1.0.16)",
   summary:
-    "Sistema Punto de Venta y suite ERP modular 100% offline sobre Electron, React, TypeScript y SQLite (WAL), operativo en dos sucursales con ~5.500 productos por tienda y más de 1.200 transacciones mensuales por sucursal. Incluye 1.118 pruebas automatizadas (100%), benchmarks hasta 50.000 productos con 0 long tasks, 19 ADRs y 14 capturas reales.",
+    "Sistema Punto de Venta y suite ERP modular offline-first sobre Electron, React, TypeScript y SQLite (WAL), operativo en dos sucursales (~5.500 productos por tienda) registrando en una de ellas más de 1.200 ventas mensuales. Incluye 1.118 pruebas automatizadas aprobadas (99 suites), benchmarks hasta 50.000 SKU con 0 long tasks, 19 ADRs y 14 capturas reales.",
   featuredTags: [
     { label: "Electron 31 · React 18 · TypeScript 5" },
     { label: "SQLite 3 (WAL) · RAM Cache" },
@@ -25,22 +25,22 @@ export const maveposEs: ProjectCaseStudy = {
     {
       label: "Pruebas automatizadas",
       value: "1.118 / 1.118",
-      note: "99 suites · 100% pasando (Electron + SQLite real)",
+      note: "99 suites · tasa de aprobación (Electron + SQLite real)",
     },
     {
-      label: "Latencia escritura (50k)",
+      label: "Entrada F2 / F10 (50k)",
       value: "8,3 – 8,5 ms p95",
-      note: "0 long tasks en Catálogo F2 y Buscador F10",
+      note: "Proxy DOM/frame · 0 long tasks en Catálogo F2 y Buscador F10",
     },
     {
-      label: "Escala del código",
-      value: "64.558 LOC",
-      note: "194 archivos fuente · 23.179 LOC tests · 19 ADRs",
+      label: "Persistencia y diseño",
+      value: "27 migraciones",
+      note: "SQLite WAL · 19 ADRs · respaldos db.backup()",
     },
     {
-      label: "Accesibilidad y UI",
+      label: "Auditoría UI automatizada",
       value: "390 / 390",
-      note: "WCAG AA (768p/900p/1080p) · 0 layout shift",
+      note: "Estados aprobados contraste WCAG AA/geometría (768p–1080p)",
     },
   ],
   links: [
@@ -138,7 +138,7 @@ export const maveposEs: ProjectCaseStudy = {
         "node-thermal-printer (ESC/POS 58/80 mm)",
         "Windows Spooler RAW (C# GDI)",
         "Cajón de dinero RJ11",
-        "HMAC-SHA256 + MachineGuid",
+        "Licenciamiento offline por hardware",
         "electron-builder (NSIS Windows)",
       ],
     },
@@ -154,7 +154,7 @@ export const maveposEs: ProjectCaseStudy = {
   ],
   architecture: {
     overview: {
-      text: "Arquitectura de procesos aislados en Electron (`contextIsolation: true`) con puente IPC estrictamente tipado (`Preload Bridge`). El *Renderer* mantiene una caché *write-through* en RAM (`memoryCatalogStore`) sincronizada con el *Main Process*, que ejecuta todas las transacciones críticas en SQLite (`IMMEDIATE`, WAL, 27 migraciones). La suite ERP vive en un runtime desacoplado (`ErpRuntime`) cargado bajo demanda tras validación criptográfica HMAC-SHA256, manteniendo limpio el grafo estático del POS base.",
+      text: "Arquitectura de procesos aislados en Electron (`contextIsolation: true`) con puente IPC estrictamente tipado (`Preload Bridge`). El *Renderer* mantiene una caché *write-through* en RAM (`memoryCatalogStore`) sincronizada con el *Main Process*, que ejecuta todas las transacciones críticas en SQLite (`IMMEDIATE`, WAL, 27 migraciones). La suite ERP vive en un runtime desacoplado (`ErpRuntime`) cargado bajo demanda tras validación de licencia offline ligada a hardware, manteniendo limpio el grafo estático del POS base.",
     },
     components: [
       {
@@ -201,7 +201,7 @@ export const maveposEs: ProjectCaseStudy = {
         id: "ADR-0008",
         title: "Licenciamiento offline por hardware",
         summary:
-          "Firma criptográfica HMAC-SHA256 ligada al `MachineGuid` de Windows con generador privado independiente, eliminando servidores de activación.",
+          "Verificación criptográfica local ligada al identificador de hardware del equipo, eliminando la necesidad de servidores de activación en línea.",
       },
       {
         id: "ADR-0010",
@@ -267,7 +267,7 @@ export const maveposEs: ProjectCaseStudy = {
         "Mantener una caché en memoria exige garantizar paridad estricta de orden, paginación y herencia de categorías frente a SQLite; se cubrió con 22 suites (242 pruebas) de paridad RAM vs. SQLite.",
     },
     {
-      title: "Sincronización multi-tienda sin servidor cloud ($0/mes)",
+      title: "Sincronización multi-tienda sin servidor backend propio",
       problem:
         "Permitir que una bodega central y múltiples sucursales compartan stock, despachos parciales y homologaciones de catálogo usando solo Google Drive Desktop, evitando archivos corruptos a medio escribir, dobles descuentos o pérdida de transferencias ante cortes.",
       approach:
@@ -280,7 +280,7 @@ export const maveposEs: ProjectCaseStudy = {
       problem:
         "Las impresoras térmicas de 58/80 mm en Windows presentan incompatibilidades frecuentes entre drivers nativos y comandos ESC/POS, mientras que la distribución comercial offline requiere evitar copia directa sin levantar servidores de activación.",
       approach:
-        "Se implementó un `PrinterService` híbrido (ESC/POS nativo + puente C# GDI Windows Spooler RAW + soporte A4) y licenciamiento offline con firmas HMAC-SHA256 ligadas al `MachineGuid` de Windows (ADR-0008).",
+        "Se implementó un `PrinterService` híbrido (ESC/POS nativo + puente Windows Spooler RAW + soporte A4) y licenciamiento criptográfico offline ligado a hardware (ADR-0008).",
     },
   ],
   testSuiteBreakdown: {
@@ -388,7 +388,7 @@ export const maveposEs: ProjectCaseStudy = {
         scenario: "Mesa de Transferencias — Escritura p95",
         before: "96,9 – 282,2 ms (long task 319 ms)",
         after: "14,1 – 14,4 ms · 0 long tasks",
-        improvement: "> 90% reducción en latencia",
+        improvement: "85–95% reducción según escenario",
       },
       {
         scenario: "Catálogo Consolidado — Escritura p95 (50k)",
@@ -438,7 +438,7 @@ export const maveposEs: ProjectCaseStudy = {
   },
   commercialMatrix: {
     overview:
-      "Un único código fuente gobierna 4 planes comerciales (ADR-0012), operando con costo de infraestructura cloud de $0/mes, licenciamiento offline HMAC-SHA256 atado a hardware e instalador autónomo NSIS de 84,1 MB (builds progresivos de v1.0.0 a v1.0.16).",
+      "Un único código fuente gobierna 4 planes comerciales (ADR-0012), operando sin servidor backend propio ni costo adicional de infraestructura cloud en el despliegue actual, con licenciamiento offline ligado a hardware e instalador autónomo NSIS para Windows (builds progresivos de v1.0.0 a v1.0.16).",
     plans: [
       {
         plan: "1. POS Monocaja",
@@ -470,10 +470,10 @@ export const maveposEs: ProjectCaseStudy = {
       },
     ],
     advantages: [
-      "Costo de infraestructura cloud = $0/mes (100% local en Windows + Google Drive Desktop existente).",
-      "Control antipiratería offline mediante firmas HMAC-SHA256 ligadas a hardware sin servidor de activación.",
+      "Sin servidor backend propio ni costo adicional de infraestructura cloud en el despliegue actual (operación local en Windows + Google Drive Desktop existente).",
+      "Licenciamiento criptográfico offline ligado a hardware sin necesidad de servidor de activación.",
       "Migraciones automáticas de SQLite (27 versiones) y respaldo automático rotativo de 7 copias con db.backup().",
-      "Continuidad total ante cortes de internet y recuperación ante cierres inesperados mediante tickets persistidos.",
+      "Continuidad local ante cortes de internet y recuperación ante cierres inesperados mediante tickets persistidos.",
     ],
   },
   results: [
@@ -481,13 +481,13 @@ export const maveposEs: ProjectCaseStudy = {
       category: "Despliegue en producción",
       title: "Operación real en dos sucursales",
       detail:
-        "Actualmente operativo en **dos sucursales comerciales** gestionando aproximadamente **5.500 productos por tienda**, con sincronización diaria de inventario, transferencias y homologación de catálogos sin servidor central ($0/mes en infraestructura cloud).",
+        "Actualmente operativo en **dos sucursales comerciales** gestionando aproximadamente **5.500 productos por tienda**, con sincronización diferida de inventario, transferencias y homologación de catálogos sin servidor backend propio.",
     },
     {
-      category: "Volumen transaccional real",
-      title: "Más de 1.200 transacciones mensuales por sucursal",
+      category: "Volumen transaccional medido",
+      title: "Más de 1.200 ventas mensuales en una sucursal",
       detail:
-        "En operación real de lunes a sábado, una sola sucursal registra **1.276 transacciones mensuales** (**363 en la última semana**, ~60 ventas diarias), validando la estabilidad de SQLite WAL, el buscador en RAM y la impresión térmica en uso continuo de caja.",
+        "En operación real de lunes a sábado, una de las sucursales registró **1.276 transacciones en un mes** (**363 en la última semana**, ~60 ventas diarias), validando la estabilidad de SQLite WAL, el buscador en RAM y la impresión térmica en uso continuo de caja.",
     },
   ],
   media: [
@@ -671,6 +671,6 @@ export const maveposEs: ProjectCaseStudy = {
   seo: {
     title: "MavePOS — Caso de Estudio Técnico",
     description:
-      "Caso de estudio en profundidad de MavePOS: POS y suite ERP multi-tienda 100% offline en Electron, React, TypeScript y SQLite WAL con 1.118 pruebas y benchmarks hasta 50k productos.",
+      "Caso de estudio técnico de MavePOS: POS offline-first y suite ERP multi-tienda en Electron, React, TypeScript y SQLite WAL con 1.118 pruebas aprobadas y benchmarks hasta 50k productos.",
   },
 };

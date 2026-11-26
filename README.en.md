@@ -1,4 +1,4 @@
-[Español](./README.md) | **English**
+[Español](./README.md) · **English**
 
 # Portfolio — Cristóbal Nanjarí
 
@@ -34,9 +34,9 @@ The deployed site can be explored directly at [cristobal-nanjari.vercel.app](htt
 
 | Project | Focus & primary stack | Status / Highlighted scope | Route |
 | :--- | :--- | :--- | :--- |
-| **MavePOS** | 100% offline multi-store POS and ERP suite for Windows (Electron 31, React 18, TypeScript 5, SQLite 3 WAL, write-through RAM cache, ESC/POS + C# GDI RAW, Google Drive sync). | Running in 2 retail branches (~5,500 products and 1,200+ monthly sales per store), 1,118 automated tests, and 19 ADRs. | [`/en/projects/mavepos`](https://cristobal-nanjari.vercel.app/en/projects/mavepos) |
-| **UDP Attendance System** | Web platform (Next.js), mobile app (Flutter), and async backend (Python, FastAPI, WebSocket, Firebase Auth, Cloud Firestore) with anti-fraud dynamic QR tokens and bidirectional Canvas LMS integration. | Undergraduate thesis validated in real classes and under load (> 50,000 records and 1,500 concurrent). Includes full thesis PDF. | [`/en/projects/udp-attendance`](https://cristobal-nanjari.vercel.app/en/projects/udp-attendance) |
-| **Laminitas Tracker** | 100% offline mobile app in Flutter and Dart 3.7 (Riverpod, Hive) to manage the 980-sticker FIFA World Cup 2026 album, featuring a binary QR protocol (125 B bitsets + GZIP + Base64), Update Set rule engine, and expense tracking. | Built for Android (`v1.9.0+138`), QR-interoperable with third-party apps, and portable cloud-free backups. | [`/en/projects/collectibles-app`](https://cristobal-nanjari.vercel.app/en/projects/collectibles-app) |
+| **MavePOS** | Offline-first Windows POS and multi-store ERP suite (Electron 31, React 18, TypeScript 5, SQLite 3 WAL, write-through RAM cache, ESC/POS + C# GDI RAW, deferred Google Drive sync). | Deployed in 2 retail branches (~5,500 products per store; one branch records 1,200+ monthly sales), 1,118 passing automated tests, and 19 ADRs. | [`/en/projects/mavepos`](https://cristobal-nanjari.vercel.app/en/projects/mavepos) |
+| **UDP Attendance System** | Web platform (Next.js), mobile app (Flutter), and async backend (Python, FastAPI, WebSocket, Firebase Auth, Cloud Firestore) with signed dynamic QR tokens and bidirectional Canvas LMS integration. | Undergraduate thesis (2025) piloted across 5 sections (~40 students/section), capacity modeling for 2,650 projected users, and functional/non-functional validation matrix (retired backend). Includes full thesis PDF. | [`/en/projects/udp-attendance`](https://cristobal-nanjari.vercel.app/en/projects/udp-attendance) |
+| **Laminitas Tracker** | Offline mobile app in Flutter and Dart 3.7 (Riverpod, Hive) to manage the 980-sticker FIFA World Cup 2026 album, featuring a binary QR protocol (125 B bitsets + GZIP + Base64), Update Set rule engine, and expense tracking. | Built and tested on Android (`v1.9.0+138`; iOS not validated), QR-interoperable, and portable cloud-free backups. | [`/en/projects/collectibles-app`](https://cristobal-nanjari.vercel.app/en/projects/collectibles-app) |
 
 > A fourth case study (`data2o-cdp-integrations`) is preserved and typed in the repository under `archivedProjects`, excluded from `PROJECT_SLUGS` so it is not published in the current build.
 
@@ -132,7 +132,7 @@ Routes under `src/app/` act as thin wrappers that declare metadata, static param
 
 ## SEO, Accessibility & Performance
 
-The following practices are implemented and verified directly in the source code:
+The following are **practices implemented in the source code** (distinct from external Lighthouse audits or production Core Web Vitals measurements):
 
 ### SEO
 - Per-route and per-locale metadata (`src/lib/seo.ts`): `title`, `description`, canonical URL, `alternates.languages` (`es`, `en`, `x-default`), Open Graph (`website` / `article`, `es_CL` / `en_US`), and Twitter Cards (`summary`).
@@ -166,7 +166,7 @@ The following practices are implemented and verified directly in the source code
 ```bash
 git clone https://github.com/cristobal-nan/portafolio.git
 cd portafolio
-npm install
+npm ci
 ```
 
 ---
@@ -177,9 +177,9 @@ npm install
 | :--- | :--- |
 | `npm run dev` | Starts the local development server at `http://localhost:3000`. |
 | `npm run lint` | Runs ESLint with Next.js rules (`core-web-vitals` and `typescript`). |
-| `npx tsc --noEmit` | Runs strict TypeScript static type checking. |
+| `npm run typecheck` | Runs strict TypeScript static type checking (`tsc --noEmit`). |
 | `npm run build` | Builds the application and generates the static export in `out/`. |
-| `npx serve out` | Serves the generated static export locally for pre-deployment verification. |
+| `npm run preview` | Serves the generated static export locally (`npx serve out`) for pre-deployment verification. |
 
 > Note: because `output: "export"` is enabled, `next start` does not apply to the static build output in `out/`.
 

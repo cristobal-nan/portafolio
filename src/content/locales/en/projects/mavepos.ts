@@ -4,17 +4,17 @@ export const maveposEn: ProjectCaseStudy = {
   slug: "mavepos",
   depth: "very-detailed",
   depthLabel: "Deep-dive case study",
-  title: "MavePOS — 100% Offline Windows POS & Multi-Store ERP Suite",
+  title: "MavePOS — Offline-First Windows POS & Multi-Store ERP Suite",
   shortTitle: "MavePOS",
   tagline:
-    "Windows desktop application engineered to run 100% offline with transactional SQLite (WAL), a write-through RAM catalog cache for up to 50,000 products, hybrid thermal printing, hardware-bound offline licensing, and a lazy-loaded multi-store ERP suite synced via Google Drive.",
-  category: "Windows Desktop · Offline POS + ERP",
+    "Windows desktop application engineered for local offline operation (transactional SQLite WAL and a write-through RAM catalog cache for up to 50,000 products), hybrid thermal printing, hardware-bound offline licensing, and a lazy-loaded multi-store ERP suite with deferred Google Drive sync.",
+  category: "Windows Desktop · Offline-First POS + ERP",
   organization: "Mave (Independent production product)",
   role: "Software Engineer — Independent Project",
   period: "Aug 2026 — Present",
-  status: "Live across 2 branches (~5,500 SKUs · 1,200+ sales/mo per store · v1.0.16)",
+  status: "Live across 2 branches (~5,500 SKUs/store · 1,200+ monthly sales in one branch · v1.0.16)",
   summary:
-    "100% offline desktop Point of Sale and modular ERP suite built with Electron, React, TypeScript, and SQLite (WAL), running in production across two retail branches with ~5,500 products and 1,200+ monthly transactions per store. Backed by 1,118 automated tests (100%), benchmarks up to 50,000 SKUs with 0 long tasks, 19 ADRs, and 14 screenshots.",
+    "Offline-first desktop Point of Sale and modular ERP suite built with Electron, React, TypeScript, and SQLite (WAL), running across two retail branches (~5,500 SKUs per store) with one branch recording 1,200+ monthly sales. Backed by 1,118 passing automated tests (99 suites), benchmarks up to 50,000 SKUs with 0 long tasks, 19 ADRs, and 14 screenshots.",
   featuredTags: [
     { label: "Electron 31 · React 18 · TypeScript 5" },
     { label: "SQLite 3 (WAL) · RAM Cache" },
@@ -25,28 +25,28 @@ export const maveposEn: ProjectCaseStudy = {
     {
       label: "Automated tests",
       value: "1,118 / 1,118",
-      note: "99 suites · 100% passing (Electron + real SQLite)",
+      note: "99 suites · pass rate (Electron + real SQLite)",
     },
     {
-      label: "Typing latency (50k)",
+      label: "F2 / F10 typing (50k)",
       value: "8.3 – 8.5 ms p95",
-      note: "0 long tasks across Catalog F2 & Quick Search F10",
+      note: "DOM/frame proxy · 0 long tasks in Catalog F2 & Quick Search F10",
     },
     {
-      label: "Codebase scale",
-      value: "64,558 LOC",
-      note: "194 source files · 23,179 test LOC · 19 ADRs",
+      label: "Persistence & design",
+      value: "27 migrations",
+      note: "SQLite WAL · 19 ADRs · db.backup() snapshots",
     },
     {
-      label: "Accessibility & UI",
+      label: "Automated UI audit",
       value: "390 / 390",
-      note: "WCAG AA (768p/900p/1080p) · 0 layout shift",
+      note: "Passing WCAG AA contrast/geometry states (768p–1080p)",
     },
   ],
   links: [
     {
       label: "View showcase on GitHub",
-      href: "https://github.com/cristobal-nan/mavepos-showcase",
+      href: "https://github.com/cristobal-nan/mavepos-showcase/blob/main/README.en.md",
       type: "repository",
     },
     {
@@ -138,7 +138,7 @@ export const maveposEn: ProjectCaseStudy = {
         "node-thermal-printer (ESC/POS 58/80mm)",
         "Windows Spooler RAW (C# GDI)",
         "RJ11 Cash Drawer",
-        "HMAC-SHA256 + MachineGuid",
+        "Hardware-bound offline licensing",
         "electron-builder (Windows NSIS)",
       ],
     },
@@ -154,7 +154,7 @@ export const maveposEn: ProjectCaseStudy = {
   ],
   architecture: {
     overview: {
-      text: "Isolated Electron multi-process architecture (`contextIsolation: true`) communicating over a strictly typed IPC preload bridge. The Renderer maintains a write-through RAM index (`memoryCatalogStore`) synced with the Main Process, which runs all critical mutations inside SQLite `IMMEDIATE` transactions (WAL mode, 27 migrations). The ERP suite lives behind a lazy-loaded runtime (`ErpRuntime`) revalidated via offline HMAC-SHA256 licensing, preserving a clean static dependency graph for the base POS edition.",
+      text: "Isolated Electron multi-process architecture (`contextIsolation: true`) communicating over a strictly typed IPC preload bridge. The Renderer maintains a write-through RAM index (`memoryCatalogStore`) synced with the Main Process, which runs all critical mutations inside SQLite `IMMEDIATE` transactions (WAL mode, 27 migrations). The ERP suite lives behind a lazy-loaded runtime (`ErpRuntime`) gated by offline hardware-bound licensing, preserving a clean static dependency graph for the base POS edition.",
     },
     components: [
       {
@@ -201,7 +201,7 @@ export const maveposEn: ProjectCaseStudy = {
         id: "ADR-0008",
         title: "Hardware-bound offline licensing",
         summary:
-          "HMAC-SHA256 cryptographic signatures bound to Windows `MachineGuid` with a standalone private generator, eliminating online activation servers.",
+          "Local cryptographic license verification bound to machine hardware identity, eliminating online activation servers.",
       },
       {
         id: "ADR-0010",
@@ -267,7 +267,7 @@ export const maveposEn: ProjectCaseStudy = {
         "Maintaining an in-memory catalog requires guaranteed parity with SQLite on sorting, pagination, and inherited categories; enforced continuously by 22 parity test suites (242 tests).",
     },
     {
-      title: "Multi-store synchronization with $0/month cloud infrastructure",
+      title: "Multi-store synchronization without a custom backend server",
       problem:
         "Coordinating inventory, partial warehouse dispatches, and catalog homologation across branches using only Google Drive Desktop risks partial writes, double deductions, or lost transfers during outages.",
       approach:
@@ -276,11 +276,11 @@ export const maveposEn: ProjectCaseStudy = {
         "Consistency is eventual (syncing as soon as connectivity resumes) rather than real-time; therefore remote branch stock lookups in F10 are deferred on demand (`F8`) so local checkout never blocks.",
     },
     {
-      title: "Reliable thermal printing & offline anti-piracy licensing",
+      title: "Reliable thermal printing & offline licensing",
       problem:
         "Windows 58/80mm thermal printers frequently suffer driver/ESC-POS mismatches, while offline commercial distribution needs license enforcement without operating activation servers.",
       approach:
-        "Built a hybrid `PrinterService` (native ESC/POS + C# GDI Windows Spooler RAW bridge + A4 fallback) alongside offline HMAC-SHA256 licenses bound to Windows `MachineGuid` (ADR-0008).",
+        "Built a hybrid `PrinterService` (native ESC/POS + Windows Spooler RAW bridge + A4 fallback) alongside offline hardware-bound cryptographic licensing (ADR-0008).",
     },
   ],
   testSuiteBreakdown: {
@@ -388,7 +388,7 @@ export const maveposEn: ProjectCaseStudy = {
         scenario: "Transfer Desk — Typing p95",
         before: "96.9 – 282.2 ms (319 ms long task)",
         after: "14.1 – 14.4 ms · 0 long tasks",
-        improvement: "> 90% latency reduction",
+        improvement: "85–95% latency reduction across scenarios",
       },
       {
         scenario: "Consolidated Catalog — Typing p95 (50k)",
@@ -438,7 +438,7 @@ export const maveposEn: ProjectCaseStudy = {
   },
   commercialMatrix: {
     overview:
-      "A single codebase supports 4 commercial tiers (ADR-0012), delivering $0/month cloud infrastructure cost, hardware-bound offline HMAC-SHA256 licensing, and an 84.1 MB standalone Windows NSIS installer (progressive builds from v1.0.0 to v1.0.16).",
+      "A single codebase supports 4 commercial tiers (ADR-0012), operating without a custom backend server or additional cloud infrastructure fees in the current deployment, with hardware-bound offline licensing and a standalone Windows NSIS installer (progressive builds from v1.0.0 to v1.0.16).",
     plans: [
       {
         plan: "1. Single-Register POS",
@@ -470,10 +470,10 @@ export const maveposEn: ProjectCaseStudy = {
       },
     ],
     advantages: [
-      "$0/month cloud infrastructure cost (100% local on Windows + existing Google Drive Desktop).",
-      "Offline anti-piracy via hardware-bound HMAC-SHA256 signatures with no activation server.",
+      "No custom backend server or additional cloud infrastructure fees in the current deployment (local Windows operation + existing Google Drive Desktop).",
+      "Offline hardware-bound cryptographic licensing with no activation server.",
       "Automatic SQLite schema migrations (27 versions) and 7-copy rotating backups via db.backup().",
-      "Full checkout continuity during internet outages and crash recovery via SQLite-persisted tickets.",
+      "Local checkout continuity during internet outages and crash recovery via SQLite-persisted tickets.",
     ],
   },
   results: [
@@ -481,13 +481,13 @@ export const maveposEn: ProjectCaseStudy = {
       category: "Production deployment",
       title: "Live operation across two retail branches",
       detail:
-        "Currently running in production across **two retail branches** managing approximately **5,500 products per store**, enabling daily stock replenishment, transfers, and catalog homologation with $0/month cloud infrastructure cost.",
+        "Currently running in production across **two retail branches** managing approximately **5,500 products per store**, enabling deferred inventory sync, transfers, and catalog homologation without a custom backend server.",
     },
     {
-      category: "Production transaction volume",
-      title: "1,200+ monthly transactions per branch",
+      category: "Measured transaction volume",
+      title: "1,200+ monthly sales in one branch",
       detail:
-        "Under live Monday–Saturday retail operation, a single branch processes **1,276 monthly transactions** (**363 in the latest week**, ~60 daily sales), validating SQLite WAL durability, write-through RAM search, and hybrid thermal printing under sustained checkout load.",
+        "Under live Monday–Saturday retail operation, one branch recorded **1,276 transactions in a single month** (**363 in the latest week**, ~60 daily sales), validating SQLite WAL durability, write-through RAM search, and hybrid thermal printing under sustained checkout load.",
     },
   ],
   media: [
@@ -671,6 +671,6 @@ export const maveposEn: ProjectCaseStudy = {
   seo: {
     title: "MavePOS — Technical Case Study",
     description:
-      "Deep-dive case study of MavePOS: 100% offline Windows POS & multi-store ERP suite built with Electron, React, TypeScript, and SQLite WAL with 1,118 tests and 50k-product benchmarks.",
+      "Deep-dive case study of MavePOS: offline-first Windows POS & multi-store ERP suite built with Electron, React, TypeScript, and SQLite WAL with 1,118 passing tests and 50k-product benchmarks.",
   },
 };

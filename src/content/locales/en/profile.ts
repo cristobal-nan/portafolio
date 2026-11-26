@@ -28,20 +28,20 @@ export const profileEn: ProfileContent = {
       period: "Aug 2026 — Present",
       location: "Santiago, Chile",
       summary: {
-        text: "End-to-end architecture and engineering of a modular offline-first desktop POS + ERP system currently running in production across two retail branches with approximately 5,500 products and 1,200+ monthly transactions per store.",
+        text: "End-to-end architecture and engineering of a modular offline-first desktop POS + ERP system currently running in production across two retail branches (~5,500 products per store), with one branch recording 1,200+ monthly sales.",
       },
       highlights: [
         {
           text: "Implemented sales, inventory, cash finance, and accounts receivable modules with atomic transactions, full movement auditability, and commercial peripheral integration.",
         },
         {
-          text: "Engineered multi-branch inventory synchronization, warehouse transfers, and catalog homologation without a central server, streamlining daily stock replenishment.",
+          text: "Engineered deferred multi-branch inventory synchronization, warehouse transfers, and catalog homologation without a custom backend server, streamlining daily stock replenishment.",
         },
         {
-          text: "Optimized search across 10,000+ SKU catalogs achieving p95 typing latencies under 15 ms in production performance benchmarks.",
+          text: "Optimized catalog search (F2/F10) across 10,000–50,000 SKU datasets achieving p95 typing latencies under 15 ms in production performance benchmarks.",
         },
         {
-          text: "Established engineering quality controls with 1,000+ automated tests, versioned database migrations, and Architecture Decision Records (ADRs).",
+          text: "Established engineering quality controls with 1,100+ passing automated tests, versioned database migrations, and Architecture Decision Records (ADRs).",
         },
       ],
       relatedProjectSlug: "mavepos",
@@ -171,7 +171,7 @@ export const profileEn: ProfileContent = {
           text: "Capstone thesis — Comprehensive Academic Attendance System: autonomously proposed and engineered a web and mobile (Android & iOS) solution with institutional authentication, unique time-bound codes, and an asynchronous backend (Python, FastAPI, Flutter, Next.js, Firebase/Firestore, Vercel, Render).",
         },
         {
-          text: "Validated in live university classes and load-tested with over 50,000 records and 1,500 concurrent attendance submissions.",
+          text: "Piloted across 5 academic sections (~40 students per section), backed by capacity modeling for 2,650 projected users and a formal functional/non-functional validation matrix.",
         },
       ],
     },

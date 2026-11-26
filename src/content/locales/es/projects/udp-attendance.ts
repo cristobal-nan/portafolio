@@ -12,25 +12,25 @@ export const udpAttendanceEs: ProjectCaseStudy = {
   organization: "Universidad Diego Portales (UDP) — Tesis de título (2025)",
   role: "Autor y Desarrollador Full Stack",
   period: "Tesis de título (2025)",
-  status: "Validado en clases reales y bajo carga (> 50.000 registros)",
+  status: "Proyecto de título histórico (2025) · Piloto en 5 secciones · Backend retirado",
   summary:
-    "Solución integral de asistencia académica diseñada para la Facultad de Ingeniería y Ciencias de la UDP: tokens QR dinámicos con WebSocket y bloqueo de capturas, matriz en tiempo real, reportes diarios/alerta temprana, integración nativa con Canvas LMS, 24 casos de uso y validación sobre > 50.000 registros y 1.500 concurrentes.",
+    "Solución integral de asistencia académica diseñada para la Facultad de Ingeniería y Ciencias de la UDP: tokens QR dinámicos firmados con confirmación en tiempo real por WebSocket, matriz de asistencia, reportes diarios/alerta temprana por umbral, integración bidireccional con Canvas LMS, 24 casos de uso, piloto en 5 secciones (~40 estudiantes/sección) y estudio de capacidad para 2.650 usuarios proyectados.",
   featuredTags: [
     { label: "Python · FastAPI · WebSocket" },
     { label: "Flutter (Android & iOS) · Next.js" },
     { label: "Firebase Auth · Cloud Firestore" },
-    { label: "Canvas LMS API · > 50k registros" },
+    { label: "Canvas LMS API · 24 casos de uso" },
   ],
   keyMetrics: [
     {
-      label: "Pruebas de carga",
-      value: "> 50.000",
-      note: "Registros totales y 1.500 simultáneos validados",
+      label: "Piloto académico",
+      value: "5 secciones",
+      note: "~40 estudiantes por sección junto al profesor guía",
     },
     {
       label: "Capacidad modelada",
       value: "2.650 usuarios",
-      note: "200k registros/mes · 8,4 req/s · 29,4 ops BD/s",
+      note: "Proyección FIC-UDP · 200k reg./mes · 8,4 req/s",
     },
     {
       label: "Integración LMS",
@@ -40,7 +40,7 @@ export const udpAttendanceEs: ProjectCaseStudy = {
     {
       label: "Factibilidad FIC-UDP",
       value: "Payback ~5 meses",
-      note: "VAN CLP $27,8M (6%) · TIR 253% · $0,90 USD/mes DB",
+      note: "Estimación: VAN CLP $27,8M (6%) · TIR 253% · $0,90 USD/mes DB",
     },
   ],
   links: [
@@ -67,7 +67,7 @@ export const udpAttendanceEs: ProjectCaseStudy = {
       text: "Tesis para optar al título de **Ingeniero Civil en Informática y Telecomunicaciones** en la Facultad de Ingeniería y Ciencias de la **Universidad Diego Portales (UDP)** (2025). El proyecto transforma el control de asistencia en aula —tradicionalmente un proceso manual o fragmentado— en un activo estratégico de gestión académica con alertas tempranas de deserción.",
     },
     {
-      text: "La solución se diseñó para operar junto al ecosistema universitario existente (**Canvas LMS** y cuentas Google institucionales `@mail.udp.cl`), ejecutando una metodología híbrida (Cascada en diseño arquitectónico y modelo de datos + iteraciones Ágiles en desarrollo y validación).",
+      text: "La solución se diseñó para operar junto al ecosistema universitario existente (**Canvas LMS** y cuentas Google institucionales `@mail.udp.cl`), ejecutando una metodología híbrida (Cascada en diseño arquitectónico y modelo de datos + iteraciones Ágiles en desarrollo y validación). *Estado actual:* el despliegue institucional original está retirado y el monorepositorio público se conserva para revisión de código sin demo en línea.",
     },
   ],
   problem: [
@@ -80,21 +80,21 @@ export const udpAttendanceEs: ProjectCaseStudy = {
   ],
   solution: [
     {
-      text: "**Flujo presencial antifraude (App Móvil Flutter):** El docente o ayudante activa la sesión de clase en aula, el estudiante autenticado con `@mail.udp.cl` genera un **token QR dinámico firmado criptográficamente** con cuenta regresiva y **bloqueo de captura de pantalla**, y el docente lo escanea con su cámara. El backend verifica firma, vigencia, inscripción en la sección y duplicados, enviando confirmación instantánea por **WebSocket** a ambos dispositivos.",
+      text: "**Flujo presencial con mitigación de suplantación (App Móvil Flutter):** El docente o ayudante activa la sesión de clase en aula, el estudiante autenticado con `@mail.udp.cl` genera un **token QR dinámico firmado criptográficamente** (vigencia de 30 s) con cuenta regresiva y soporte de bloqueo de capturas en móvil, y el docente lo escanea con su cámara. El backend verifica firma, vigencia, inscripción en la sección y duplicados, enviando confirmación en tiempo real por **WebSocket** a ambos dispositivos.",
     },
     {
-      text: "**Gestión, analítica e integración Canvas (Plataforma Web Next.js):** Panel centralizado con matriz de asistencia en tiempo real (con contingencia manual auditada y filtros por tipo de reunión: Cátedra, Ayudantía, Laboratorio), **Reportes Diarios** automáticos (incluyendo alertas por clases no activadas o registradas 100% manualmente), **Alertas Tempranas** por snapshots históricos configurables (umbral 70% por defecto), exportación CSV/XLSX multi-hoja e **integración bidireccional con Canvas LMS**.",
+      text: "**Gestión, analítica e integración Canvas (Plataforma Web Next.js):** Panel centralizado con matriz de asistencia en tiempo real (con contingencia manual auditada y filtros por tipo de reunión: Cátedra, Ayudantía, Laboratorio), **Reportes Diarios** automáticos (incluyendo alertas por clases no activadas o registradas 100% manualmente), **Alertas Tempranas** por snapshots históricos y umbral configurable (70% por defecto; no predictivo), exportación CSV/XLSX multi-hoja e **integración bidireccional con Canvas LMS**.",
     },
   ],
   responsibilities: [
     {
-      text: "Propuesta, diseño de arquitectura de 5 componentes, especificación de 24 casos de uso, modelado NoSQL en Cloud Firestore (9 colecciones y 2 subcolecciones) y estudio de capacidad y factibilidad económica para la FIC-UDP.",
+      text: "Propuesta, diseño de arquitectura de 5 componentes, especificación de 24 casos de uso, modelado NoSQL en Cloud Firestore (9 colecciones y 2 subcolecciones) y estudio de capacidad y factibilidad económica para 2.650 usuarios proyectados en la FIC-UDP.",
     },
     {
       text: "Desarrollo autónomo completo del backend asíncrono en **Python / FastAPI**, plataforma web en **Next.js** (Vercel), aplicación móvil **Flutter** (Android e iOS) e integración con la API de **Canvas LMS**.",
     },
     {
-      text: "Diseño de matriz de validación (28 casos funcionales/seguridad + 9 no funcionales), pilotaje en clases reales y pruebas de carga con más de **50.000 registros** y **1.500 registros simultáneos**.",
+      text: "Diseño de matriz formal de validación (28 casos funcionales/seguridad + 9 criterios no funcionales) y pilotaje académico en **5 secciones (~40 estudiantes por sección)** junto al profesor guía.",
     },
   ],
   technologies: [
@@ -125,7 +125,7 @@ export const udpAttendanceEs: ProjectCaseStudy = {
         "Render (Backend Standard 1 CPU / 2 GB RAM)",
         "Vercel (Frontend Web)",
         "pytest · Cypress · flutter_test · Firebase Emulator",
-        "Pruebas de carga (> 50k / 1.500 concurrentes)",
+        "Matriz de validación (28 funcionales + 9 no funcionales)",
       ],
     },
   ],
@@ -136,9 +136,9 @@ export const udpAttendanceEs: ProjectCaseStudy = {
     components: [
       {
         name: "App Móvil Flutter (`qr_generator` / `qr_validator`)",
-        role: "Android & iOS · Captura antifraude",
+        role: "Android & iOS · Captura QR presencial",
         details:
-          "Inicio de sesión restringido a `@mail.udp.cl`, generación de QR temporal con cuenta regresiva y bloqueo de screenshots, activación de reuniones, escaneo por cámara y confirmación en vivo vía WebSocket.",
+          "Inicio de sesión restringido a `@mail.udp.cl`, generación de QR temporal firmado (30 s) con cuenta regresiva, utilidad de bloqueo de capturas en móvil, activación de reuniones, escaneo por cámara y confirmación en tiempo real vía WebSocket.",
       },
       {
         name: "Plataforma Web Next.js (Vercel)",
@@ -194,25 +194,25 @@ export const udpAttendanceEs: ProjectCaseStudy = {
         "Usar tareas dedicadas en el libro de notas evita depender de un módulo cerrado y entrega visibilidad inmediata al estudiante en la app oficial de Canvas, a cambio de mantener un vínculo explícito (`lmsCourseId`) por sección.",
     },
     {
-      title: "Prevención de fraude presencial y picos de concurrencia al inicio de clase",
+      title: "Mitigación de suplantación presencial y picos al inicio de clase",
       problem:
-        "Permitir que un estudiante envíe una captura de su QR a un compañero ausente invalida la presencialidad, mientras que cientos de registros simultáneos en los primeros 5 minutos del bloque pueden saturar backends síncronos.",
+        "Permitir que un estudiante envíe una captura de su QR a un compañero ausente debilita la verificación presencial, mientras que múltiples registros simultáneos al inicio del bloque pueden saturar backends síncronos.",
       approach:
-        "Se combinaron tokens dinámicos firmados de corta duración (~30 s), bloqueo de capturas de pantalla en la app móvil (`RF-3-03`), alerta automática en el reporte diario ante secciones con 100% de registro manual, y un backend asíncrono en **FastAPI** validado con > 50.000 registros y 1.500 concurrentes.",
+        "Se combinaron tokens dinámicos firmados de corta duración (30 s), utilidad de bloqueo de capturas de pantalla en la app móvil (`RF-3-03`), alerta automática en el reporte diario ante secciones con 100% de registro manual, y un backend asíncrono en **FastAPI** diseñado para concurrencia no bloqueante.",
     },
   ],
   results: [
     {
-      category: "Validación real y carga",
-      title: "Clases reales + > 50.000 registros y 1.500 simultáneos",
+      category: "Piloto académico y matriz de validación",
+      title: "Piloto en 5 secciones (~40 estudiantes/sección) + matriz de 37 casos",
       detail:
-        "Prototipo validado en **clases reales** de la UDP y en pruebas de carga superando **50.000 registros** y **1.500 registros simultáneos**, respaldado por una matriz formal de **28 casos funcionales/seguridad** y **9 criterios no funcionales** (API < 500 ms, QR < 1 s, matriz web < 3 s).",
+        "Prototipo utilizado en un **piloto académico de 5 secciones (~40 estudiantes por sección)** junto al profesor guía, acompañado de una matriz formal de **28 casos funcionales/seguridad** y **9 criterios no funcionales objetivo** (API < 500 ms, QR < 1 s, matriz web < 3 s).",
     },
     {
       category: "Modelamiento de capacidad y viabilidad (FIC-UDP)",
-      title: "Escalabilidad a 2.650 usuarios y retorno en ~5 meses",
+      title: "Proyección para 2.650 usuarios y retorno estimado en ~5 meses",
       detail:
-        "Modelado para 2.500 estudiantes + 150 docentes/admin (**200.000 registros/mes**, pico 4,2 TPS / 8,4 req/s / 29,4 ops BD/s) con costo estimado de Firestore de **~$0,903 USD/mes** en `southamerica-west1` (Santiago), **VAN de CLP $27.844.232 (6%)**, **TIR de 253%** y recuperación estimada en **0,39 años (~5 meses)** por liberación de tiempo docente.",
+        "Estudio de dimensionamiento para una población proyectada de 2.500 estudiantes + 150 docentes/admin (**200.000 registros/mes**, pico modelado de 4,2 TPS / 8,4 req/s / 29,4 ops BD/s) con costo estimado de Firestore de **~$0,903 USD/mes** en `southamerica-west1` (Santiago), **VAN estimado de CLP $27.844.232 (6%)**, **TIR de 253%** y recuperación estimada en **0,39 años (~5 meses)** por liberación de tiempo docente.",
     },
     {
       category: "Evidencias complementarias",
@@ -318,9 +318,9 @@ export const udpAttendanceEs: ProjectCaseStudy = {
     },
     {
       id: "udp-mobile-03-qr",
-      title: "Generador de Token QR Dinámico antifraude",
+      title: "Generador de Token QR Dinámico (TTL 30 s)",
       caption:
-        "Token firmado de corta duración con cuenta regresiva visible, bloqueo de captura de pantalla y confirmación instantánea por WebSocket tras ser validado.",
+        "Token firmado de corta duración con cuenta regresiva visible, soporte de bloqueo de captura en móvil y confirmación en tiempo real por WebSocket tras ser validado.",
       kind: "screenshot",
       orientation: "portrait",
       group: "Aplicación móvil (Flutter · Android & iOS)",
@@ -353,6 +353,6 @@ export const udpAttendanceEs: ProjectCaseStudy = {
   seo: {
     title: "Sistema de Asistencia Académica UDP — Caso de Estudio",
     description:
-      "Tesis y caso de estudio del Sistema Integral de Asistencia UDP (Next.js, Flutter, FastAPI, Firestore, Canvas LMS): QR dinámicos antifraude, analíticas, > 50.000 registros y 1.500 concurrentes.",
+      "Tesis y caso de estudio del Sistema Integral de Asistencia UDP (Next.js, Flutter, FastAPI, Firestore, Canvas LMS): QR dinámicos firmados, piloto en 5 secciones y modelamiento para 2.650 usuarios proyectados.",
   },
 };

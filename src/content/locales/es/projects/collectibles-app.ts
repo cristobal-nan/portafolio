@@ -12,9 +12,9 @@ export const collectiblesAppEs: ProjectCaseStudy = {
   organization: "Proyecto independiente (Android APK v1.9.0)",
   role: "Ingeniero de Software — Proyecto independiente",
   period: "may. 2026 — ago. 2026",
-  status: "Compilada para Android (v1.9.0+138)",
+  status: "Compilada y probada en Android (v1.9.0+138 · iOS no validado)",
   summary:
-    "Aplicación móvil 100% offline en Flutter, Riverpod y Hive para el álbum de 980 láminas (48 selecciones + FWC). Incorpora interoperabilidad QR con otras apps mediante bitsets de 125 bytes comprimidos en GZIP+Base64, reglas de cuarentena para 118 reemplazos, comparador de listas de texto y control de gastos.",
+    "Aplicación móvil offline en Flutter, Riverpod y Hive para el álbum de 980 láminas (48 selecciones + FWC). Incorpora interoperabilidad QR independiente mediante bitsets de 125 bytes comprimidos en GZIP+Base64, reglas de cuarentena para 118 reemplazos, comparador de listas de texto y control de gastos.",
   featuredTags: [
     { label: "Flutter · Dart 3.7" },
     { label: "Riverpod · Hive Offline" },
@@ -64,7 +64,7 @@ export const collectiblesAppEs: ProjectCaseStudy = {
   ],
   differentiators: [
     {
-      text: "**Interoperabilidad QR cross-app con compresión binaria:** `ExportService` codifica el inventario completo en dos bitsets de 125 bytes (faltantes y repetidas disponibles), comprimidos con **GZIP** (limpiando bytes `MTIME` 4–7 para payloads deterministas) y codificados en **Base64** compatibles con *Figuritas App*. Distingue QRs de perfil (`⋋~...`) y QRs de transacción (`;⋋~...`) con inversión automática de perspectiva al escanear, tanto por cámara (`mobile_scanner`) como desde galería (`image_picker`).",
+      text: "**Interoperabilidad QR cross-app con compresión binaria:** `ExportService` codifica el inventario completo en dos bitsets de 125 bytes (faltantes y repetidas disponibles), comprimidos con **GZIP** (limpiando bytes `MTIME` 4–7 para payloads deterministas) y codificados en **Base64** compatibles con *Figuritas App* (implementación independiente, sin afiliación ni garantía de compatibilidad con versiones futuras de terceros). Distingue QRs de perfil (`⋋~...`) y QRs de transacción (`;⋋~...`) con inversión automática de perspectiva al escanear, tanto por cámara (`mobile_scanner`) como desde galería (`image_picker`).",
     },
     {
       text: "**Motor de reglas para el Set de Actualización (118 jugadores no convocados):** Soporta 4 modos (`none`, `quarantine`, `quarantineSimple`, `exclusion`) con el mapa oficial de 118 reemplazos (`UpdateSetData`), alertando antes de pegar láminas en cuarentena y recalculando automáticamente faltantes, repetidas y elegibilidad de intercambio.",

@@ -12,9 +12,9 @@ export const collectiblesAppEn: ProjectCaseStudy = {
   organization: "Independent project (Android APK v1.9.0)",
   role: "Software Engineer — Independent Project",
   period: "May 2026 — Aug 2026",
-  status: "Compiled for Android (v1.9.0+138)",
+  status: "Built & tested on Android (v1.9.0+138 · iOS not validated)",
   summary:
-    "100% offline mobile app built with Flutter, Riverpod, and Hive for the 980-sticker album (48 teams + FWC). Features cross-app QR interoperability via 125-byte GZIP+Base64 bitsets, quarantine rules for 118 Update Set replacements, text-list matching, and financial tracking.",
+    "Offline mobile app built with Flutter, Riverpod, and Hive for the 980-sticker album (48 teams + FWC). Features independent cross-app QR interoperability via 125-byte GZIP+Base64 bitsets, quarantine rules for 118 Update Set replacements, text-list matching, and financial tracking.",
   featuredTags: [
     { label: "Flutter · Dart 3.7" },
     { label: "Riverpod · Offline Hive" },
@@ -24,7 +24,7 @@ export const collectiblesAppEn: ProjectCaseStudy = {
   links: [
     {
       label: "View repository on GitHub",
-      href: "https://github.com/cristobal-nan/laminitas-tracker",
+      href: "https://github.com/cristobal-nan/laminitas-tracker/blob/main/README.en.md",
       type: "repository",
     },
     {
@@ -63,7 +63,7 @@ export const collectiblesAppEn: ProjectCaseStudy = {
   ],
   differentiators: [
     {
-      text: "**Cross-app binary QR interoperability:** `ExportService` encodes the full collection into two 125-byte bitsets (missing and tradable duplicates), **GZIP**-compressed (zeroing `MTIME` bytes 4–7 for deterministic output) and **Base64**-encoded to interoperate with *Figuritas App*. Distinguishes profile QRs (`⋋~...`) from swap transaction QRs (`;⋋~...`) with automatic give/receive perspective inversion, supporting live camera (`mobile_scanner`) and gallery image decoding (`image_picker`).",
+      text: "**Cross-app binary QR interoperability:** `ExportService` encodes the full collection into two 125-byte bitsets (missing and tradable duplicates), **GZIP**-compressed (zeroing `MTIME` bytes 4–7 for deterministic output) and **Base64**-encoded to interoperate with *Figuritas App* (independent implementation, with no affiliation or compatibility guarantee across future third-party releases). Distinguishes profile QRs (`⋋~...`) from swap transaction QRs (`;⋋~...`) with automatic give/receive perspective inversion, supporting live camera (`mobile_scanner`) and gallery image decoding (`image_picker`).",
     },
     {
       text: "**Update Set rule engine (118 uncalled players):** Supports 4 modes (`none`, `quarantine`, `quarantineSimple`, `exclusion`) backed by the official 118-player replacement table (`UpdateSetData`), warning collectors before pasting quarantined stickers and dynamically recalculating missing, duplicate, and tradable counts.",

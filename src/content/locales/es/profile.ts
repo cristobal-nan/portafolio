@@ -28,20 +28,20 @@ export const profileEs: ProfileContent = {
       period: "ago. 2026 — actualidad",
       location: "Santiago, Chile",
       summary: {
-        text: "Diseño y desarrollo autónomo de un sistema POS + ERP de escritorio con arquitectura modular offline-first, actualmente operativo en dos sucursales con aproximadamente 5.500 productos por tienda y más de 1.200 transacciones mensuales por sucursal.",
+        text: "Diseño y desarrollo autónomo de un sistema POS + ERP de escritorio con arquitectura modular offline-first, actualmente operativo en dos sucursales (~5.500 productos por tienda), registrando en una de ellas más de 1.200 ventas mensuales.",
       },
       highlights: [
         {
           text: "Implementé módulos de ventas, inventario, finanzas y cuentas por cobrar con transacciones atómicas, trazabilidad de movimientos e integración de periféricos comerciales.",
         },
         {
-          text: "Desarrollé la sincronización de inventario, transferencias y homologación de catálogos entre sucursales sin servidor central, facilitando la reposición diaria de mercadería.",
+          text: "Desarrollé la sincronización diferida de inventario, transferencias y homologación de catálogos entre sucursales sin servidor backend propio, facilitando la reposición diaria de mercadería.",
         },
         {
-          text: "Optimicé búsquedas en catálogos de más de 10.000 productos logrando latencias p95 inferiores a 15 ms en pruebas de rendimiento.",
+          text: "Optimicé la búsqueda en catálogo (F2/F10) sobre conjuntos de 10.000 a 50.000 productos logrando latencias de entrada p95 inferiores a 15 ms en pruebas de rendimiento.",
         },
         {
-          text: "Establecí controles de calidad con más de 1.000 pruebas automatizadas, migraciones versionadas y documentación de decisiones arquitectónicas (ADRs).",
+          text: "Establecí controles de calidad con más de 1.100 pruebas automatizadas aprobadas, migraciones versionadas y documentación de decisiones arquitectónicas (ADRs).",
         },
       ],
       relatedProjectSlug: "mavepos",
@@ -170,7 +170,7 @@ export const profileEs: ProfileContent = {
           text: "Proyecto de título — Sistema integral de gestión de asistencia: solución web y móvil (Android e iOS) propuesta y desarrollada de forma autónoma con autenticación institucional, códigos temporales únicos y backend asíncrono (Python, FastAPI, Flutter, Next.js, Firebase/Firestore, Vercel y Render).",
         },
         {
-          text: "Validado en clases reales y mediante pruebas de carga con más de 50.000 registros y 1.500 registros simultáneos.",
+          text: "Probado en un piloto académico de 5 secciones (~40 estudiantes por sección), acompañado de estudio de dimensionamiento para 2.650 usuarios proyectados y matriz formal de validación funcional y no funcional.",
         },
       ],
     },
