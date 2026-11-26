@@ -12,20 +12,20 @@ export const maveposEn: ProjectCaseStudy = {
   organization: "Mave (Independent production product)",
   role: "Software Engineer — Independent Project",
   period: "Aug 2026 — Present",
-  status: "Live across 2 branches (~5,500 SKUs · 1,200+ sales/mo per store · v1.0.15)",
+  status: "Live across 2 branches (~5,500 SKUs · 1,200+ sales/mo per store · v1.0.16)",
   summary:
-    "100% offline desktop Point of Sale and modular ERP suite built with Electron, React, TypeScript, and SQLite (WAL), running in production across two retail branches with ~5,500 products and 1,200+ monthly transactions per store. Backed by 1,078 automated tests (100%), benchmarks up to 50,000 SKUs with 0 long tasks, 19 ADRs, and 14 screenshots.",
+    "100% offline desktop Point of Sale and modular ERP suite built with Electron, React, TypeScript, and SQLite (WAL), running in production across two retail branches with ~5,500 products and 1,200+ monthly transactions per store. Backed by 1,118 automated tests (100%), benchmarks up to 50,000 SKUs with 0 long tasks, 19 ADRs, and 14 screenshots.",
   featuredTags: [
     { label: "Electron 31 · React 18 · TypeScript 5" },
     { label: "SQLite 3 (WAL) · RAM Cache" },
     { label: "ESC/POS · C# GDI RAW" },
-    { label: "1,078 tests · 19 ADRs" },
+    { label: "1,118 tests · 19 ADRs" },
   ],
   keyMetrics: [
     {
       label: "Automated tests",
-      value: "1,078 / 1,078",
-      note: "97 suites · 100% in 10.47 s (Electron + real SQLite)",
+      value: "1,118 / 1,118",
+      note: "99 suites · 100% passing (Electron + real SQLite)",
     },
     {
       label: "Typing latency (50k)",
@@ -44,6 +44,11 @@ export const maveposEn: ProjectCaseStudy = {
     },
   ],
   links: [
+    {
+      label: "View showcase on GitHub",
+      href: "https://github.com/cristobal-nan/mavepos-showcase",
+      type: "repository",
+    },
     {
       label: "General demo video",
       type: "demo",
@@ -68,7 +73,7 @@ export const maveposEn: ProjectCaseStudy = {
   ],
   context: [
     {
-      text: "MavePOS is a standalone Windows desktop product (84.1 MB NSIS installer, 21 progressive builds from v1.0.0 through v1.0.15) built for retail stores and multi-branch businesses requiring full operational continuity without internet dependency or recurring cloud SaaS fees.",
+      text: "MavePOS is a standalone Windows desktop product (84.1 MB NSIS installer, progressive builds from v1.0.0 through v1.0.16) built for retail stores and multi-branch businesses requiring full operational continuity without internet dependency or recurring cloud SaaS fees.",
     },
     {
       text: "From a single codebase, it ships both a core Point of Sale (POS) edition and a decoupled, lazy-loaded ERP suite tailored for businesses operating a central warehouse, multiple branches, and customer credit accounts.",
@@ -98,7 +103,7 @@ export const maveposEn: ProjectCaseStudy = {
       text: "Integrated commercial peripherals (USB HID barcode scanner, hybrid ESC/POS + C# GDI Windows Spooler RAW printing, RJ11 cash drawer) and designed serverless multi-store inventory sync, transfers, and catalog homologation.",
     },
     {
-      text: "Optimized catalog search performance across 10,000–50,000 SKUs (< 15 ms p95), authored the dual-theme WCAG AA design system, 19 ADRs, 26 SQLite migrations, and 1,078 automated tests.",
+      text: "Optimized catalog search performance across 10,000–50,000 SKUs (< 15 ms p95), authored the dual-theme WCAG AA design system, 19 ADRs, 27 SQLite migrations, and 1,118 automated tests.",
     },
   ],
   technologies: [
@@ -120,7 +125,7 @@ export const maveposEn: ProjectCaseStudy = {
       items: [
         "SQLite 3 (better-sqlite3)",
         "WAL Mode + Foreign Keys ON",
-        "26 versioned migrations",
+        "27 versioned migrations",
         "Write-through RAM cache",
         "SheetJS (xlsx)",
         "Google Drive Desktop (JSON sync)",
@@ -149,7 +154,7 @@ export const maveposEn: ProjectCaseStudy = {
   ],
   architecture: {
     overview: {
-      text: "Isolated Electron multi-process architecture (`contextIsolation: true`) communicating over a strictly typed IPC preload bridge. The Renderer maintains a write-through RAM index (`memoryCatalogStore`) synced with the Main Process, which runs all critical mutations inside SQLite `IMMEDIATE` transactions (WAL mode, 26 migrations). The ERP suite lives behind a lazy-loaded runtime (`ErpRuntime`) revalidated via offline HMAC-SHA256 licensing, preserving a clean static dependency graph for the base POS edition.",
+      text: "Isolated Electron multi-process architecture (`contextIsolation: true`) communicating over a strictly typed IPC preload bridge. The Renderer maintains a write-through RAM index (`memoryCatalogStore`) synced with the Main Process, which runs all critical mutations inside SQLite `IMMEDIATE` transactions (WAL mode, 27 migrations). The ERP suite lives behind a lazy-loaded runtime (`ErpRuntime`) revalidated via offline HMAC-SHA256 licensing, preserving a clean static dependency graph for the base POS edition.",
     },
     components: [
       {
@@ -280,29 +285,29 @@ export const maveposEn: ProjectCaseStudy = {
   ],
   testSuiteBreakdown: {
     summary:
-      "Executed with Vitest 2.1.9 under the real Electron binary (`ELECTRON_RUN_AS_NODE=1`) validating SQL queries, `IMMEDIATE` transactions, and 26 migrations against real `better-sqlite3`.",
+      "Executed with Vitest 2.1.9 under the real Electron binary (`ELECTRON_RUN_AS_NODE=1`) validating SQL queries, `IMMEDIATE` transactions, and 27 migrations against real `better-sqlite3`.",
     staticChecks: [
       "npm run check:rules — 0 errors (architectural & theme rules)",
       "tsc --noEmit (Node: Main + Preload) — 0 errors",
       "tsc --noEmit (Web: Renderer) — 0 errors",
     ],
-    totalSuites: 97,
-    totalTests: 1078,
-    duration: "10.47 s",
+    totalSuites: 99,
+    totalTests: 1118,
+    duration: "100% passing",
     domains: [
       {
         domain: "Warehouse ERP, Distributions, Transfers & Sync",
-        suites: 31,
-        tests: 310,
+        suites: 32,
+        tests: 324,
         scope:
-          "Atomic JSON snapshots, partial dispatch without double deduction, F3 reception, consolidated catalog, and Pure Warehouse mode",
+          "Atomic JSON snapshots, partial dispatch without double deduction, multi-day F3 allocation ledger & unlisted extras, F3 reception, consolidated catalog, and Pure Warehouse mode",
       },
       {
         domain: "Catalog, RAM/SQLite Search & Suppliers",
-        suites: 22,
-        tests: 242,
+        suites: 23,
+        tests: 263,
         scope:
-          "Exact RAM vs. SQLite parity, `%` AND rules and leading zeros, Excel import/export, and SKU safety",
+          "Exact RAM vs. SQLite parity, `%` AND rules and leading zeros, variable grouping/ungrouping (Drive/Excel parity), and SKU safety",
       },
       {
         domain: "Sales, Checkout & Exchanges",
@@ -321,9 +326,9 @@ export const maveposEn: ProjectCaseStudy = {
       {
         domain: "Licensing, ERP Isolation, DB & Settings",
         suites: 13,
-        tests: 101,
+        tests: 106,
         scope:
-          "HMAC-SHA256 verification, static POS vs. ERP graph isolation, ErpRuntime, db.backup(), and transactional restore rollback",
+          "HMAC-SHA256 verification & Machine ID stability, static POS vs. ERP graph isolation, ErpRuntime, db.backup(), and transactional restore rollback",
       },
       {
         domain: "ERP Customers, Credit & Reversals",
@@ -433,7 +438,7 @@ export const maveposEn: ProjectCaseStudy = {
   },
   commercialMatrix: {
     overview:
-      "A single codebase supports 4 commercial tiers (ADR-0012), delivering $0/month cloud infrastructure cost, hardware-bound offline HMAC-SHA256 licensing, and an 84.1 MB standalone Windows NSIS installer (21 progressive builds from v1.0.0 to v1.0.15).",
+      "A single codebase supports 4 commercial tiers (ADR-0012), delivering $0/month cloud infrastructure cost, hardware-bound offline HMAC-SHA256 licensing, and an 84.1 MB standalone Windows NSIS installer (progressive builds from v1.0.0 to v1.0.16).",
     plans: [
       {
         plan: "1. Single-Register POS",
@@ -467,7 +472,7 @@ export const maveposEn: ProjectCaseStudy = {
     advantages: [
       "$0/month cloud infrastructure cost (100% local on Windows + existing Google Drive Desktop).",
       "Offline anti-piracy via hardware-bound HMAC-SHA256 signatures with no activation server.",
-      "Automatic SQLite schema migrations (26 versions) and 7-copy rotating backups via db.backup().",
+      "Automatic SQLite schema migrations (27 versions) and 7-copy rotating backups via db.backup().",
       "Full checkout continuity during internet outages and crash recovery via SQLite-persisted tickets.",
     ],
   },
@@ -666,6 +671,6 @@ export const maveposEn: ProjectCaseStudy = {
   seo: {
     title: "MavePOS — Technical Case Study",
     description:
-      "Deep-dive case study of MavePOS: 100% offline Windows POS & multi-store ERP suite built with Electron, React, TypeScript, and SQLite WAL with 1,078 tests and 50k-product benchmarks.",
+      "Deep-dive case study of MavePOS: 100% offline Windows POS & multi-store ERP suite built with Electron, React, TypeScript, and SQLite WAL with 1,118 tests and 50k-product benchmarks.",
   },
 };
