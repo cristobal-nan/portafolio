@@ -23,6 +23,16 @@ export const collectiblesAppEs: ProjectCaseStudy = {
   ],
   links: [
     {
+      label: "Ver repositorio en GitHub",
+      href: "https://github.com/cristobal-nan/laminitas-tracker",
+      type: "repository",
+    },
+    {
+      label: "Descargar APK v1.9.0 (Android)",
+      href: "https://github.com/cristobal-nan/laminitas-tracker/releases/tag/v1.9.0",
+      type: "repository",
+    },
+    {
       label: "Video general",
       type: "demo",
       placeholderNote:

@@ -45,6 +45,11 @@ export const udpAttendanceEn: ProjectCaseStudy = {
   ],
   links: [
     {
+      label: "View repository on GitHub",
+      href: "https://github.com/cristobal-nan/academic-attendance-system",
+      type: "repository",
+    },
+    {
       label: "Download full thesis document (PDF · ES)",
       href: "/docs/memoria-asistencia-udp.pdf",
       type: "document",
