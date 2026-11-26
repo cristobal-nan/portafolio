@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="1200" height="620" role="img" aria-labelledby="title desc">
+  <title id="title">Generic CDP Integration Architecture with Tracardi</title>
+  <desc id="desc">Sanitized diagram without client data showing event ingestion from 10 e-commerce storefronts and a Next.js testbed into Tracardi deployed on Docker and AWS, supported by Supabase and Vue.js.</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#475569" />
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#2563eb" />
+    </marker>
+    <style>
+      .font-sans { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+      .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="620" fill="#ffffff" rx="12" />
+  <rect x="16" y="16" width="1168" height="588" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" rx="10" />
+
+  <!-- Header -->
+  <text x="44" y="56" class="font-sans" font-size="20" font-weight="700" fill="#0f172a">Generic CDP Integration Architecture (Sanitized Pattern)</text>
+  <text x="44" y="78" class="font-sans" font-size="12.5" fill="#475569">Decoupled event ingestion, profile unification, and segmentation flow without client names or proprietary schemas</text>
+
+  <!-- Sanitized Badge -->
+  <rect x="912" y="38" width="244" height="30" rx="15" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1" />
+  <text x="1034" y="57" text-anchor="middle" class="font-mono" font-size="11" font-weight="600" fill="#1d4ed8">GENERIC PATTERN · NDA-SAFE</text>
+
+  <!-- Column Headers -->
+  <text x="155" y="116" text-anchor="middle" class="font-mono" font-size="11" font-weight="700" fill="#64748b" letter-spacing="0.8">1. SOURCES &amp; TESTBED</text>
+  <text x="405" y="116" text-anchor="middle" class="font-mono" font-size="11" font-weight="700" fill="#64748b" letter-spacing="0.8">2. INTEGRATION LAYER</text>
+  <text x="705" y="116" text-anchor="middle" class="font-mono" font-size="11" font-weight="700" fill="#1d4ed8" letter-spacing="0.8">3. CDP CORE (DOCKER / AWS)</text>
+  <text x="1025" y="116" text-anchor="middle" class="font-mono" font-size="11" font-weight="700" fill="#0f766e" letter-spacing="0.8">4. OUTPUTS &amp; SUPPORT</text>
+
+  <!-- Column 1: Sources -->
+  <rect x="44" y="136" width="222" height="148" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+  <rect x="58" y="150" width="98" height="20" rx="4" fill="#f1f5f9" />
+  <text x="107" y="164" text-anchor="middle" class="font-mono" font-size="10" font-weight="600" fill="#334155">PRODUCTION</text>
+  <text x="58" y="192" class="font-sans" font-size="14.5" font-weight="700" fill="#0f172a">10 E-commerce Sites</text>
+  <text x="58" y="213" class="font-sans" font-size="12" fill="#475569">Heterogeneous storefronts</text>
+  <text x="58" y="233" class="font-sans" font-size="11.5" fill="#64748b">• Catalog browsing events</text>
+  <text x="58" y="250" class="font-sans" font-size="11.5" fill="#64748b">• Cart lifecycle events</text>
+  <text x="58" y="267" class="font-sans" font-size="11.5" fill="#64748b">• Checkout &amp; conversion</text>
+
+  <rect x="44" y="308" width="222" height="128" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+  <rect x="58" y="322" width="128" height="20" rx="4" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1" />
+  <text x="122" y="336" text-anchor="middle" class="font-mono" font-size="10" font-weight="600" fill="#0f766e">TESTBED STORE</text>
+  <text x="58" y="364" class="font-sans" font-size="14" font-weight="700" fill="#0f172a">Next.js E-commerce</text>
+  <text x="58" y="384" class="font-sans" font-size="11.5" fill="#475569">Built at DigitalTex</text>
+  <text x="58" y="403" class="font-sans" font-size="11.5" fill="#64748b">• Catalog, cart &amp; mock pay</text>
+  <text x="58" y="420" class="font-sans" font-size="11.5" fill="#64748b">• Pre-production validation</text>
+
+  <rect x="44" y="458" width="222" height="72" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 3" />
+  <text x="58" y="484" class="font-sans" font-size="13.5" font-weight="700" fill="#0f172a">Postman</text>
+  <text x="58" y="504" class="font-sans" font-size="11.5" fill="#64748b">HTTP contract &amp; payload</text>
+  <text x="58" y="520" class="font-sans" font-size="11.5" fill="#64748b">verification before rollout</text>
+
+  <!-- Column 2: Integration Layer -->
+  <rect x="314" y="168" width="182" height="118" rx="10" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5" />
+  <text x="405" y="196" text-anchor="middle" class="font-mono" font-size="11" font-weight="700" fill="#1d4ed8">WEB CLIENT</text>
+  <text x="405" y="218" text-anchor="middle" class="font-sans" font-size="14.5" font-weight="700" fill="#0f172a">JavaScript</text>
+  <text x="405" y="238" text-anchor="middle" class="font-sans" font-size="11.5" fill="#475569">Standardized session &amp;</text>
+  <text x="405" y="256" text-anchor="middle" class="font-sans" font-size="11.5" fill="#475569">event instrumentation</text>
+  <text x="405" y="274" text-anchor="middle" class="font-sans" font-size="11.5" fill="#64748b">decoupled from storefront</text>
+
+  <rect x="314" y="318" width="182" height="118" rx="10" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5" />
+  <text x="405" y="346" text-anchor="middle" class="font-mono" font-size="11" font-weight="700" fill="#1d4ed8">SERVER / API</text>
+  <text x="405" y="368" text-anchor="middle" class="font-sans" font-size="14.5" font-weight="700" fill="#0f172a">REST APIs</text>
+  <text x="405" y="388" text-anchor="middle" class="font-sans" font-size="11.5" fill="#475569">HTTPS/JSON endpoints</text>
+  <text x="405" y="406" text-anchor="middle" class="font-sans" font-size="11.5" fill="#475569">for reliable ingestion</text>
+  <text x="405" y="424" text-anchor="middle" class="font-sans" font-size="11.5" fill="#64748b">and external sync</text>
+
+  <!-- Column 3: CDP Core Container -->
+  <rect x="546" y="136" width="318" height="394" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.75" />
+  <rect x="564" y="152" width="282" height="28" rx="6" fill="#1d4ed8" />
+  <text x="705" y="170" text-anchor="middle" class="font-mono" font-size="11.5" font-weight="700" fill="#ffffff">TRACARDI CDP · DOCKER ON AWS</text>
+
+  <!-- Inner box 1 -->
+  <rect x="564" y="196" width="282" height="82" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.25" />
+  <text x="580" y="219" class="font-sans" font-size="13.5" font-weight="700" fill="#0f172a">Event Ingestion &amp; Profile Unification</text>
+  <text x="580" y="239" class="font-sans" font-size="11.5" fill="#475569">Normalizing multi-storefront events into</text>
+  <text x="580" y="256" class="font-sans" font-size="11.5" fill="#475569">consistent customer profiles</text>
+
+  <!-- Inner box 2 -->
+  <rect x="564" y="294" width="282" height="106" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.25" />
+  <text x="580" y="317" class="font-sans" font-size="13.5" font-weight="700" fill="#0f172a">Workflows &amp; Custom Extensions</text>
+  <text x="580" y="337" class="font-sans" font-size="11.5" fill="#475569">• Automated segmentation pipelines</text>
+  <text x="580" y="355" class="font-sans" font-size="11.5" fill="#475569">• Abandoned cart detection</text>
+  <text x="580" y="373" class="font-sans" font-size="11.5" fill="#1d4ed8" font-weight="600">  (adopted as an official Tracardi feature)</text>
+  <text x="580" y="390" class="font-sans" font-size="11.5" fill="#64748b">• Workflows tailored to LatAm use cases</text>
+
+  <!-- Inner box 3 -->
+  <rect x="564" y="416" width="282" height="96" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.25" />
+  <text x="580" y="439" class="font-sans" font-size="13.5" font-weight="700" fill="#0f172a">Frontend Tooling &amp; Operations</text>
+  <text x="580" y="459" class="font-sans" font-size="11.5" fill="#475569">• Supporting UI &amp; views built with Vue.js</text>
+  <text x="580" y="477" class="font-sans" font-size="11.5" fill="#475569">• Reproducible containerized deployments</text>
+  <text x="580" y="495" class="font-sans" font-size="11.5" fill="#64748b">• 3-developer team workflow + Git</text>
+
+  <!-- Column 4: Outputs & Support -->
+  <rect x="912" y="136" width="244" height="112" rx="10" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5" />
+  <text x="928" y="160" class="font-mono" font-size="10.5" font-weight="700" fill="#0f766e">DATA &amp; SUPPORT</text>
+  <text x="928" y="183" class="font-sans" font-size="14.5" font-weight="700" fill="#0f172a">Supabase</text>
+  <text x="928" y="204" class="font-sans" font-size="11.5" fill="#475569">Supporting services, auxiliary</text>
+  <text x="928" y="221" class="font-sans" font-size="11.5" fill="#475569">storage, and companion flows</text>
+  <text x="928" y="238" class="font-sans" font-size="11.5" fill="#64748b">for the CDP stack</text>
+
+  <rect x="912" y="274" width="244" height="116" rx="10" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5" />
+  <text x="928" y="298" class="font-mono" font-size="10.5" font-weight="700" fill="#0f766e">ACTIVATION</text>
+  <text x="928" y="321" class="font-sans" font-size="14.5" font-weight="700" fill="#0f172a">Automated Segmentation</text>
+  <text x="928" y="342" class="font-sans" font-size="11.5" fill="#475569">Dynamic audiences and rule</text>
+  <text x="928" y="359" class="font-sans" font-size="11.5" fill="#475569">triggers on key customer events</text>
+  <text x="928" y="376" class="font-sans" font-size="11.5" fill="#64748b">(e.g., abandoned carts)</text>
+
+  <rect x="912" y="416" width="244" height="114" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+  <text x="928" y="440" class="font-mono" font-size="10.5" font-weight="700" fill="#475569">SOLUTIONS ENGINEERING</text>
+  <text x="928" y="463" class="font-sans" font-size="14" font-weight="700" fill="#0f172a">Chile &amp; LatAm Demos</text>
+  <text x="928" y="484" class="font-sans" font-size="11.5" fill="#475569">Technical discovery, requirements</text>
+  <text x="928" y="501" class="font-sans" font-size="11.5" fill="#475569">gathering, and upstream feedback</text>
+  <text x="928" y="518" class="font-sans" font-size="11.5" fill="#64748b">with maintainers (EN)</text>
+
+  <!-- Arrows Col 1 -> Col 2 -->
+  <path d="M 266 210 L 310 210" stroke="#475569" stroke-width="1.75" fill="none" marker-end="url(#arrow)" />
+  <path d="M 266 240 C 292 240, 290 348, 310 348" stroke="#475569" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+  <path d="M 266 374 L 310 374" stroke="#475569" stroke-width="1.75" fill="none" marker-end="url(#arrow)" />
+  <path d="M 266 494 C 292 494, 290 404, 310 404" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrow)" />
+
+  <!-- Arrows Col 2 -> Col 3 -->
+  <path d="M 496 227 L 542 227" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrow-blue)" />
+  <path d="M 496 377 L 542 377" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrow-blue)" />
+
+  <!-- Arrows Col 3 -> Col 4 -->
+  <path d="M 864 192 L 908 192" stroke="#475569" stroke-width="1.75" fill="none" marker-end="url(#arrow)" />
+  <path d="M 864 332 L 908 332" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrow-blue)" />
+  <path d="M 864 472 L 908 472" stroke="#475569" stroke-width="1.75" fill="none" marker-end="url(#arrow)" />
+
+  <!-- Footer Note -->
+  <line x1="44" y1="556" x2="1156" y2="556" stroke="#e2e8f0" stroke-width="1" />
+  <text x="44" y="582" class="font-sans" font-size="11.5" fill="#64748b">Confidentiality note: Generic architectural representation created for this portfolio. Omits client names, credentials, internal endpoints, and private metrics.</text>
+</svg>
