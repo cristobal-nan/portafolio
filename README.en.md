@@ -25,7 +25,7 @@ The deployed site can be explored directly at [cristobal-nanjari.vercel.app](htt
 - **FOUC-free light and dark theme:** initial detection via `prefers-color-scheme`, persistence in `localStorage`, cross-tab synchronization, and pre-paint class application through a synchronous inline script.
 - **Structured technical case studies:** each project includes context, problem, solution, responsibilities, stack, architecture, ADRs, technical challenges with trade-offs, results, benchmarks, test suite breakdowns, and a media gallery with a sticky table of contents and sequential project navigation.
 - **Minimal client-side JavaScript surface:** Server-First architecture where only 4 interactive components use `"use client"`.
-- **Downloadable resources and direct contact:** downloadable PDF resume (`/cv/cv.pdf`), attached technical documents (such as the undergraduate thesis PDF), and one-click email copy to clipboard.
+- **Downloadable resources and direct contact:** downloadable PDF resume (`/cv/CV_Cristobal_Nanjari.pdf`), attached technical documents (such as the undergraduate thesis PDF), and one-click email copy to clipboard.
 - **Global bilingual 404 handling:** `global-not-found.tsx` providing return links to `/` and `/en`.
 
 ---
@@ -63,7 +63,7 @@ Routes under `src/app/` act as thin wrappers that declare metadata, static param
 ```text
 .
 ├── public/
-│   ├── cv/                       # Downloadable resume (cv.pdf)
+│   ├── cv/                       # Downloadable resume (CV_Cristobal_Nanjari.pdf)
 │   ├── docs/                     # Technical documents (memoria-asistencia-udp.pdf)
 │   └── images/projects/          # Screenshots and diagrams per case study
 ├── src/

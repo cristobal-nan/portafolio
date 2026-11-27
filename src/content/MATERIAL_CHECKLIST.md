@@ -56,7 +56,7 @@ Orden y profundidad definida para los 4 casos de estudio principales:
 
 ## Información personal (4 / 4)
 
-- [x] **CV actualizado** — Copiado a `public/cv/cv.pdf` y descarga activada en `src/content/site.ts` (`CV_Cristobal_Nanjari.pdf`)
+- [x] **CV actualizado** — Copiado a `public/cv/CV_Cristobal_Nanjari.pdf` y descarga activada en `src/content/site.ts` (`CV_Cristobal_Nanjari.pdf`)
 - [x] **LinkedIn actualizado** — Integrado en `src/content/site.ts` (`linkedin.com/in/cristóbal-nanjarí-100377109`)
 - [x] **GitHub** — Integrado en `src/content/site.ts` (`https://github.com/cristobal-nan`)
 - [x] **Presentación profesional en español e inglés** — Integrada en `src/content/site.ts` y `src/content/locales/{es,en}/profile.ts`

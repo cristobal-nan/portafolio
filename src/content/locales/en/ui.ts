@@ -26,7 +26,7 @@ export const uiEn: UiDictionary = {
     backToProjects: "Back to projects",
     downloadCv: "Download CV (PDF · ES)",
     downloadCvPendingNote:
-      "Resume PDF pending upload at public/cv/cv.pdf (Spanish version)",
+      "Resume PDF pending upload at public/cv/CV_Cristobal_Nanjari.pdf (Spanish version)",
     copyEmail: "Copy email",
     emailCopied: "Email copied",
     sendEmail: "Send email",

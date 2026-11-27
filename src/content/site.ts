@@ -19,7 +19,7 @@ export const siteConfig: SiteConfig = {
     en: "Santiago, Chile",
   },
   cv: {
-    href: "/cv/cv.pdf",
+    href: "/cv/CV_Cristobal_Nanjari.pdf",
     fileName: "CV_Cristobal_Nanjari.pdf",
     available: true,
     languageTag: "ES",

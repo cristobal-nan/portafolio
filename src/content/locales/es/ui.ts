@@ -26,7 +26,7 @@ export const uiEs: UiDictionary = {
     backToProjects: "Volver a proyectos",
     downloadCv: "Descargar CV (PDF)",
     downloadCvPendingNote:
-      "CV en PDF pendiente de cargar en public/cv/cv.pdf",
+      "CV en PDF pendiente de cargar en public/cv/CV_Cristobal_Nanjari.pdf",
     copyEmail: "Copiar correo",
     emailCopied: "Correo copiado",
     sendEmail: "Enviar correo",

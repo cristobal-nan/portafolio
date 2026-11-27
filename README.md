@@ -25,7 +25,7 @@ El sitio en producción puede explorarse directamente en [cristobal-nanjari.verc
 - **Tema claro y oscuro sin parpadeo (FOUC):** detección inicial de `prefers-color-scheme`, persistencia en `localStorage`, sincronización entre pestañas y aplicación previa al primer pintado mediante script síncrono.
 - **Casos de estudio técnicos estructurados:** cada proyecto incluye contexto, problema, solución, responsabilidades, stack, arquitectura, ADRs, desafíos con *trade-offs*, resultados, benchmarks, desglose de pruebas y galería multimedia con tabla de contenidos fija (*sticky TOC*) y navegación secuencial.
 - **Superficie mínima de JavaScript en cliente:** arquitectura *Server-First* donde solo 4 componentes interactivos utilizan `"use client"`.
-- **Recursos descargables y contacto directo:** descarga de CV en PDF (`/cv/cv.pdf`), documentos técnicos adjuntos (como la memoria de tesis en PDF) y copia directa de correo electrónico al portapapeles.
+- **Recursos descargables y contacto directo:** descarga de CV en PDF (`/cv/CV_Cristobal_Nanjari.pdf`), documentos técnicos adjuntos (como la memoria de tesis en PDF) y copia directa de correo electrónico al portapapeles.
 - **Manejo global de rutas 404 bilingüe:** página `global-not-found.tsx` con enlaces de retorno a `/` y `/en`.
 
 ---
@@ -63,7 +63,7 @@ Las rutas bajo `src/app/` actúan como envoltorios livianos que definen metadato
 ```text
 .
 ├── public/
-│   ├── cv/                       # Currículum descargable (cv.pdf)
+│   ├── cv/                       # Currículum descargable (CV_Cristobal_Nanjari.pdf)
 │   ├── docs/                     # Documentos técnicos (memoria-asistencia-udp.pdf)
 │   └── images/projects/          # Capturas y diagramas por caso de estudio
 ├── src/
